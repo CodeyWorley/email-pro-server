@@ -12,6 +12,7 @@
   "author": "Codey Worley",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",

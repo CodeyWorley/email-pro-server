@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
 
+const { router: emailsRouter } = require('./emails');
+const { router: addressesRouter } = require('./addresses');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
@@ -30,8 +32,14 @@ app.use(function (req, res, next) {
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
+app.use('/api/emails', emailsRouter);
+app.use('/api/addresses', addressesRouter);
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
+
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found' });
+});
 
 let server;
 function runServer(databaseUrl, port = PORT) {
