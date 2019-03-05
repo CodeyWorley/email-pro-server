@@ -17,7 +17,7 @@ const AddressSchema = new mongoose.Schema({
     }
 });
 
-AddressSchema.index({userId: 1, emailAddress: 1}, {unique: true});
+AddressSchema.index({emailAddress: 1, userId: 1}, {unique: true});
 
 const Address = mongoose.model('Address', AddressSchema);
 
