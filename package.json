@@ -4,14 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "server": "nodemon server.js",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "heroku": "node index.js"
   },
   "keywords": [],
   "author": "Codey Worley",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
